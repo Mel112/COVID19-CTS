@@ -54,7 +54,7 @@ class PatientController extends Controller
         ]);
 
         foreach ($request->doctorPatients as $doctorPatient) {
-            $patient ->doctors()->attach($doctorPatient['doctor_id'], ['nickname' => $doctorPatient['nickname']]);
+            $patient->doctors()->attach($doctorPatient['doctor_id'], ['nickname' => $doctorPatient['nickname'], 'phonenumber' => $doctorPatient['phonenumber'], 'region' => $doctorPatient['region']]);
         }
 
         return redirect()->route('patients.index')

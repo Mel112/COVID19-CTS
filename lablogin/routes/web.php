@@ -53,7 +53,14 @@ Route::resource('information', InformationController::class);
 
 // PDF
 Route::get('pdf/preview', [PDFController::class, 'preview'])->name('pdf.preview');
+Route::get('pdf/preview1', [PDFController::class, 'preview1'])->name('pdf.preview1');
+Route::get('pdf/preview2', [PDFController::class, 'preview2'])->name('pdf.preview2');
+Route::get('pdf/preview3', [PDFController::class, 'preview3'])->name('pdf.preview3');
+Route::get('pdf/preview4', [PDFController::class, 'preview4'])->name('pdf.preview4');
 Route::get('pdf/generate', [PDFController::class, 'generatePDF'])->name('pdf.generate');
+Route::get('pdf1/generate', [PDFController::class, 'generate1'])->name('pdf1.generate');
+Route::get('pdf2/generate', [PDFController::class, 'generate2'])->name('pdf2.generate');
+Route::get('pdf3/generate', [PDFController::class, 'generate3'])->name('pdf3.generate');
 //Excel 1
 Route::get('/export-excel', [PDFController::class, 'exportExcel'])->name('excel.generate');
 Route::get('/export-csv', [PDFController::class, 'exportCSV'])->name('csv.generate');

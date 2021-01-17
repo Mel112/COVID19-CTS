@@ -77,7 +77,7 @@
   </div>
 </div>
 
-                <div id="pie_chart"></div>
+                <div id="pie_chart" class="pr-3 pb-3 pt-4"></div>
               </div>
             </div>
 </div>

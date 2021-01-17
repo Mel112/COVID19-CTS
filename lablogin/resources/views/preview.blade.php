@@ -1,227 +1,145 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>COVID-19 Tracker</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    </head>
-    <style type="text/css">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
+<div class="flex items-center bg-gray-200 text-gray-800">
+  <div class="p-1 w-full"></div>
+</div>
 
-    /* Table */
-    #id{
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 80%;
-        height: 30px;
-        font-size: 14px;
-    }
+      <div class="mx-1 pt-5">
+   <div class="grid gap-6 mb-8 md:grid-cols-1">
+      <div class="min-w-0 p-4 text-gray-800 bg-white rounded-xl shadow-sm">
+      <h4 class="mb-4 font-semibold">
+        COVID-19 Trace System Records
+      </h4>
 
-    #id td, #id th{
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
+  <div class="dropdown show">
+  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Download File
+  </a>
 
-    #id tr:nth-child(even){
-        background-color: #f2f2f2;
-    }
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="{{ route('pdf.generate') }}" :active="request()->routeIs('pdf.generate')">All Data Record (PDF)</a>
+    <a class="dropdown-item" href="{{ route('pdf1.generate') }}" :active="request()->routeIs('pdf1.generate')">Patients Record (PDF)</a>
+    <a class="dropdown-item" href="{{ route('pdf2.generate') }}" :active="request()->routeIs('pdf2.generate')">CloseContacts Record (PDF)</a>
+    <a class="dropdown-item" href="{{ route('pdf3.generate') }}" :active="request()->routeIs('pdf3.generate')">Doctors Record (PDF)</a>
+    <a class="dropdown-item" href="{{ route('excel.generate') }}" :active="request()->routeIs('excel.generate')">Patients.xslx</a>
+    <a class="dropdown-item" href="{{ route('excel1.generate') }}" :active="request()->routeIs('excel1.generate')">CloseContacts.xslx</a>
+    <a class="dropdown-item" href="{{ route('excel2.generate') }}" :active="request()->routeIs('excel2.generate')">Doctors.xslx</a>
+    <a class="dropdown-item" href="{{ route('csv.generate') }}" :active="request()->routeIs('csv.generate')">Patients.csv</a>
+    <a class="dropdown-item" href="{{ route('csv1.generate') }}" :active="request()->routeIs('csv1.generate')">CloseContacts.csv</a>
+    <a class="dropdown-item" href="{{ route('csv2.generate') }}" :active="request()->routeIs('csv2.generate')">Doctors.csv</a>
+  </div>
 
-    #id tr:hover{
-        background-color: #ddd;
-    }
+<!-- table -->
+<!-- Suspects Table -->
+<br><br><br>
+<div class="panel-heading">
+    <h5>Patients Record List</h5>
+</div> <!-- end of panel heading -->
+    <table class="border table-fixed text-center">
+        <thead>
+            <tr class="bg-gray-400 text-white">
+                <th class="px-8 py-2 w-10">FirstName</th>
+                <th class="px-8 py-2 w-10">LastName</th>
+                <th class="px-8 py-2 w-10">Status</th>
+                <th class="px-8 py-2 w-10">Age</th>
+                <th class="px-8 py-2 w-10">Gender</th>
+                <th class="px-8 py-2 w-10">PhoneNo.</th>
+                <th class="px-8 py-2 w-10">Region</th>
+            </tr>
+        </thead>
+            <tbody>
+            @foreach($patients as $patient)
+                <tr>
+                    <td class="border">{{ $patient->firstname }}</td>
+                    <td class="border">{{ $patient->lastname }}</td>
+                    <td class="border">{{ $patient->status }}</td>
+                    <td class="border">{{ $patient->age }}</td>
+                    <td class="border">{{ $patient->gender }}</td>
+                    <td class="border">{{ $patient->phonenumber }}</td>
+                    <td class="border">{{ $patient->region }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+    </table>
 
-    #id th{
-        padding-top: 10px;
-        padding-bottom: 10px;
-        text-align: left;
-        background-color: #1C64F2;
-        color: black;
-    }
+<!-- table 2 -->
+<!-- Suspects Table -->
+<br><br><br>
+<div class="panel-heading">
+    <h5>Close Contacts Record List</h5>
+</div> <!-- end of panel heading -->
+    <table class="border table-fixed text-center">
+        <thead>
+            <tr class="bg-gray-400 text-white">
+                <th class="px-8 py-2 w-10">Contact ID</th>
+                <th class="px-8 py-2 w-10">NickName</th>
+                <th class="px-8 py-2 w-10">Phone Number</th>
+                <th class="px-8 py-2 w-10">Region</th>
+                <th class="px-8 py-2 w-10">Doctor ID</th>
+                <th class="px-8 py-2 w-10">Patient ID</th>
+                <th class="px-8 py-2 w-10">Created At</th>
+            </tr>
+        </thead>
+            <tbody>
+            @foreach($doctor_patient as $doctorpatient)
+                <tr>
+                    <td class="border">{{ $doctorpatient->id }}</td>
+                    <td class="border">{{ $doctorpatient->nickname }}</td>
+                    <td class="border">{{ $doctorpatient->phonenumber }}</td>
+                    <td class="border">{{ $doctorpatient->region }}</td>
+                    <td class="border">{{ $doctorpatient->doctor_id }}</td>
+                    <td class="border">{{ $doctorpatient->patient_id }}</td>
+                    <td class="border">{{ $doctorpatient->created_at }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+    </table>
 
-    /* Heading */
-    h2{
-        margin-top: 20px;
-    }
+<!-- table 3 -->
+<!-- Suspects Table -->
+<br><br><br>
+<div class="panel-heading">
+    <h5>Doctors Record List</h5>
+</div> <!-- end of panel heading -->
+    <table class="border table-fixed text-center">
+        <thead>
+            <tr class="bg-gray-400 text-white">
+                <th class="px-8 py-2 w-10">FirstName</th>
+                <th class="px-8 py-2 w-10">LastName</th>
+                <th class="px-8 py-2 w-10">Status</th>
+                <th class="px-8 py-2 w-10">Age</th>
+                <th class="px-8 py-2 w-10">Gender</th>
+                <th class="px-8 py-2 w-10">PhoneNo.</th>
+                <th class="px-8 py-2 w-10">Region</th>
+            </tr>
+        </thead>
+            <tbody>
+            @foreach($doctors as $doctor)
+                <tr>
+                    <td class="border">{{ $doctor->firstname }}</td>
+                    <td class="border">{{ $doctor->lastname }}</td>
+                    <td class="border">{{ $doctor->status }}</td>
+                    <td class="border">{{ $doctor->age }}</td>
+                    <td class="border">{{ $doctor->gender }}</td>
+                    <td class="border">{{ $doctor->phonenumber }}</td>
+                    <td class="border">{{ $doctor->region }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+    </table>
+   
 
-    /* Body */
-    body{
-        background: #f2f2f2;
-        display: flex;
-    }
+</div> <!-- end of div -->
 
-    .section{
-        margin-top: 30px;
-        padding: 50px;
-        background: #fff;
-    }
-
-    /* Dropdown */
-    .dropbtn{
-        background-color: #1C64F2;
-        color: white;
-        padding: 8px;
-        font-size: 15px;
-        border: none;
-    }
-
-    .dropdown{
-        position: relative;
-    }
-
-    .dropdown-content{
-        display: none;
-        position: absolute;
-        background-color: #f4f4f4;
-        min-width: 150px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        font-size: 15px;
-    }
-
-    .dropdown-content a{
-        color: black;
-        padding: 15px 15px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #1C64F2;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .dropdown:hover .dropbtn {
-        background-color: #495464;
-    }
-    </style>
-
-    <body>
-        <div class="container">
-            <div class="col-md-8 section offset-md-2">
-                <div class="panel panel-primary">
-                <h1>Export Data</h1>
-                <!-- Dropwdown button -->
-                <div class="row">
-                <div class="column px-3">
-                <div class="dropdown">
-                    <button class="dropbtn btn btn-dark rounded-pill px-5">Export</button>
-                    <div class="dropdown-content">
-                        <a href="{{ route('pdf.generate') }}">Export PDF File</a>
-                        <a href="{{ route('excel.generate') }}">Patients.xlsx</a>
-                        <a href="{{ route('excel1.generate') }}">Contacts.xlsx</a>
-                        <a href="{{ route('excel2.generate') }}">Doctors.xlsx</a>
-                        <a href="{{ route('csv.generate') }}">Patients.csv</a>
-                        <a href="{{ route('csv1.generate') }}">Contacts.csv</a>
-                        <a href="{{ route('csv2.generate') }}">Doctors.csv</a>
-                    </div> <!-- end of dropdown content -->
-                </div> <!-- end of dropdown -->
-                </div>
-                <div class="column">
-                <a class="btn btn-dark rounded-pill px-5" href="{{ route('dashboard') }}"> Back</a>
-                </div>
-                </div>
-
-                <!-- Patients Table -->
-                <div class="panel-heading">
-                    <h2>Patients Record List</h2>
-                </div> <!-- end of panel heading -->
-                <div class="panel-body">
-                    <div class="main-div">
-                    <table id="id">
-                        <thead>
-                            <tr>
-                                <th class="text-left">First Name</th>
-                                <th class="text-left">Last Name</th>
-                                <th class="text-left">Status</th>
-                                <th class="text-left">Age</th>
-                                <th class="text-left">Gender</th>
-                                <th class="text-left">Phone No.</th>
-                                <th class="text-left">Region</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($patients as $patient)
-                            <tr>
-                                <td class="text-left">{{ $patient->firstname }}</td>
-                                <td class="text-left">{{ $patient->lastname }}</td>
-                                <td class="text-left">{{ $patient->status }}</td>
-                                <td class="text-left">{{ $patient->age }}</td>
-                                <td class="text-left">{{ $patient->gender }}</td>
-                                <td class="text-left">{{ $patient->phonenumber }}</td>
-                                <td class="text-left">{{ $patient->region }}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    </div><!-- end of main-div -->
-                </div><!-- end of panel body -->
-
-                <!-- Contacts Table -->
-                <div class="panel-heading">
-                    <h2>Contacts Record List</h2>
-                </div> <!-- end of panel heading -->
-                <div class="panel-body">
-                    <div class="main-div">
-                    <table id="id">
-                        <thead>
-                            <tr>
-                                <th class="text-left">First Name</th>
-                                <th class="text-left">Doctor ID</th>
-                                <th class="text-left">Patient ID</th>
-                                <th class="text-left">Created At</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($doctor_patient as $contact)
-                            <tr>
-                                <td class="text-left">{{ $contact->nickname }}</td>
-                                <td class="text-left">{{ $contact->doctor_id }}</td>
-                                <td class="text-left">{{ $contact->patient_id }}</td>
-                                <td class="text-left">{{ $contact->created_at }}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    </div><!-- end of main-div -->
-                </div><!-- end of panel body -->
-
-                <!-- Doctors Table -->
-                <div class="panel-heading">
-                    <h2>Doctors Record List</h2>
-                </div> <!-- end of panel heading -->
-                <div class="panel-body">
-                    <div class="main-div">
-                    <table id="id">
-                        <thead>
-                            <tr>
-                                <th class="text-left">First Name</th>
-                                <th class="text-left">Last Name</th>
-                                <th class="text-left">Age</th>
-                                <th class="text-left">Gender</th>
-                                <th class="text-left">Region</th>
-                                <th class="text-left">Phone No.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($doctors as $doctor)
-                            <tr>
-                                <td class="text-left">{{ $doctor->firstname }}</td>
-                                <td class="text-left">{{ $doctor->lastname }}</td>
-                                <td class="text-left">{{ $doctor->age }}</td>
-                                <td class="text-left">{{ $doctor->gender }}</td>
-                                <td class="text-left">{{ $doctor->region }}</td>
-                                <td class="text-left">{{ $doctor->phonenumber }}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    </div><!-- end of main-div -->
-                </div><!-- end of panel body -->
-
-
-                </div> <!-- end of panel primary -->
-            </div> <!-- end of col-md-8 -->
-        </div> <!-- container -->
-    </body>
-</html>
+<br><br>
+<div id="pie_chart"></div>
+</div>
+</div>
+</div>
+<script src="//www.bing.com/widget/bootstrap.answer.js" async=""></script>
+</script>  
+</x-app-layout>

@@ -7,6 +7,30 @@
 
         <title>{{ config('app.name', 'trace.ph') }}</title>
 
+        <style>
+        .btn {
+            isolation: isolate;
+        }
+
+        #count {
+            isolation: isolate;
+        }
+
+        .darkmode--activated header{
+            border-color: black black #CE7D31 black;
+        }
+
+        .darkmode--activated #bg{
+            background-color: #DDDFE0;
+        }
+
+        .darkmode--activated #casesCard{
+            background-color: blue;
+        }
+
+
+        </style>
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
@@ -31,20 +55,20 @@
 
             <!-- Side Panel -->
             <div>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    
-    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
-        <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
-    
-        <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'" class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
-            <div class="flex items-center justify-center mt-8">
-                <div class="flex items-center">
-                    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="../../images/tracedark.png" alt="">
+                <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+                
+                <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+                    <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+                
+                    <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'" class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
+                        <div class="flex items-center justify-center mt-8">
+                            <div class="flex items-center">
+                                <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="../../images/tracedark.png" alt="">
+                    </div>
                 </div>
-            </div>
     
             <nav class="mt-10">
-                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" 
+                <a class="active:bg-green-700 hover:no-underline flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:bg-opacity-80 hover:text-blue-800 font-bold" 
                 href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -57,7 +81,7 @@
                     <span class="mx-3">Dashboard</span>
                 </a>
     
-                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+                <a class="hover:no-underline flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:bg-opacity-80 hover:text-blue-800 font-bold"
                 href="{{ route('patients.index') }}" :active="request()->routeIs('patients.index')">
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -69,7 +93,7 @@
                     <span class="mx-3">Patients</span>
                 </a>
     
-                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+                <a class="hover:no-underline flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:bg-opacity-80 hover:text-blue-800 font-bold"
                 href="{{ route('contacts.index') }}" :active="request()->routeIs('contacts.index')">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -81,7 +105,7 @@
                     <span class="mx-3">Close Contacts</span>
                 </a>
 
-                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+                <a class="hover:no-underline flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:bg-opacity-80 hover:text-blue-800 font-bold"
                 href="{{ route('doctors.index') }}" :active="request()->routeIs('doctors.index')">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -92,7 +116,7 @@
     
                     <span class="mx-3">Doctors</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+                <a class="hover:no-underline flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:bg-opacity-80 hover:text-blue-800 font-bold"
                 href="{{ route('pdf.preview') }}" :active="request()->routeIs('pdf.preview')">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -103,7 +127,7 @@
     
                     <span class="mx-3">Export Data</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+                <a class="hover:no-underline flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:bg-opacity-80 hover:text-blue-800 font-bold"
                 href="{{ route('information.index') }}" :active="request()->routeIs('information.index')">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -116,8 +140,8 @@
                 </a>
             </nav>
         </div>
-        <div class="flex-1 flex flex-col overflow-hidden">
-            <header class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-blue-600">
+        <div class="flex-1 flex flex-col overflow-hidden"> 
+            <header class="darkmode--activated flex justify-between items-center py-4 px-6 bg-white border-b-4 border-blue-600">
                 <div class="flex items-center">
                     <button @click="sidebarOpen = true" class="text-gray-500 focus:outline-none lg:hidden">
                         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -163,6 +187,31 @@
         </script>
         
         <!-- scripts -->
-        
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+
+  const options = {
+  bottom: '32px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: false, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+
+  function addDarkmodeWidget() {
+    new Darkmode().showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
     </body>
 </html>

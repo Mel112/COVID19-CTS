@@ -1,3 +1,4 @@
+const { backgroundColor } = require('tailwindcss/defaultTheme');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -6,6 +7,8 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
+
+    darkMode: 'media',
 
     theme: {
         extend: {
@@ -19,5 +22,22 @@ module.exports = {
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
     },
 
-    plugins: [require('@tailwindcss/ui')],
+    variants: {
+        extend: {
+            backgroundColor: ['active'],
+        }
+    },
+
+    variants: {
+        extend: {
+          opacity: ['disabled'],
+        }
+      },
+
+    variants: {
+        extend: {
+          textColor: ['visited'],
+        }
+      },
+
 };

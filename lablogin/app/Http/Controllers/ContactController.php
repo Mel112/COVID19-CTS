@@ -85,6 +85,8 @@ class ContactController extends Controller
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
             'nickname'=>'required',
+            'phonenumber'=>'required',
+            'region'=>'required',
             'doctor_id'=>'required',
             'patient_id'=>'required',
             'created_at'=>'required',
@@ -100,6 +102,8 @@ class ContactController extends Controller
             // store
             $doctorPatient = doctorPatient::find($id);
             $doctorPatient->nickname = Input::get('nickname');
+            $doctorPatient->phonenumber = Input::get('phonenumber');
+            $doctorPatient->region = Input::get('region');
             $doctorPatient->doctor_id  = Input::get('doctor_id');
             $doctorPatient->patient_id = Input::get('patient_id');
             $doctorPatient->created_at = Input::get('created_at');

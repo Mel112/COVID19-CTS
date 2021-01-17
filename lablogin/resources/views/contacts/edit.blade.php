@@ -65,7 +65,7 @@
 
             <div class="modal-content">
             <div class="modal-header alert-warning">
-                <h4 class="modal-title">Edit Student</h4>
+                <h4 class="modal-title">Edit Close Contact</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">

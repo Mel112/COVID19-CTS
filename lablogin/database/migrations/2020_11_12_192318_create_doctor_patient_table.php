@@ -16,6 +16,8 @@ class CreateDoctorPatientTable extends Migration
         Schema::create('doctor_patient', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nickname');
+            $table->string('phonenumber');
+            $table->string('region');
             $table->foreignId('doctor_id');
             $table->foreignId('patient_id');
             $table->timestamps();

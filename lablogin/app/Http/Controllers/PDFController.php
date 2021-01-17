@@ -30,9 +30,39 @@ class PDFController extends Controller
         $doctors = Doctor::all();
         $patients = Patient::all();
         $doctor_patient = Contact::all();
-        $pdf = PDF::loadView('preview',compact('doctor_patient','doctors','patients'));
+        $pdf = PDF::loadView('preview1',compact('doctor_patient','doctors','patients'));
 
         return $pdf->download('tracerecord.pdf');
+    }
+
+    public function generate1()
+    {
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        $doctor_patient = Contact::all();
+        $pdf1 = PDF::loadView('preview2',compact('doctor_patient','doctors','patients'));
+
+        return $pdf1->download('patients.pdf');
+    }
+
+    public function generate2()
+    {
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        $doctor_patient = Contact::all();
+        $pdf2 = PDF::loadView('preview3',compact('doctor_patient','doctors','patients'));
+
+        return $pdf2->download('closecontacts.pdf');
+    }
+
+    public function generate3()
+    {
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        $doctor_patient = Contact::all();
+        $pdf3 = PDF::loadView('preview4',compact('doctor_patient','doctors','patients'));
+
+        return $pdf3->download('doctors.pdf');
     }
 
 

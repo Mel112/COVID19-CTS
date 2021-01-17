@@ -21,9 +21,8 @@ class Patient extends Model
     ];
 
     public function doctors(){
-        return $this->belongsToMany(Doctor::class)->withTimestamps();
+        return $this->belongsToMany(Doctor::class)->withTimestamps()->withPivot('phonenumber', 'region');
     }
-
 
     protected $table ='patients';
     public static function getPatients()

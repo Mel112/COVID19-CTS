@@ -12,6 +12,8 @@ class DoctorPatient extends Model
     protected $table = 'doctor_patient';
     protected $fillable = [
         'nickname', 
+        'phonenumber', 
+        'region',     
         'doctor_id',
         'patient_id',
         'created_at',

@@ -10,7 +10,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg py-5 ">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <h1>Contact Doctors</h2>
+                <h1>Doctors</h2>
 <br>
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
@@ -21,7 +21,7 @@
                         <input type="text" id="input2" onkeyup="searchlastname()" class="float-left bg-gray-200 text-black py-2 px-4 rounded-full" placeholder="Search Last Name" title="Type something">
                         </div>
                         <div class="pull-right">
-                            <a class="btn btn-success rounded-pill" href="{{ route('doctors.create') }}"> + Add New Contact Doctor</a>
+                            <a class="btn btn-success rounded-pill" href="{{ route('doctors.create') }}"> + Add New Doctor</a>
                         </div>
                     </div>
                 </div>

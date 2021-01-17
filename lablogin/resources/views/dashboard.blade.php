@@ -6,8 +6,8 @@
     </x-slot>
 
 <div class="flex items-center bg-gray-200 text-gray-800">
-  <div class="p-4 w-full">
-    <div class="grid grid-cols-12 gap-4">
+  <div id="bg" class="darkmode--activated p-4 w-full">
+    <div id="count" class="grid grid-cols-12 gap-4">
       <div class="col-span-12 sm:col-span-6 md:col-span-3">
         <div class="flex flex-row bg-blue-600 shadow-sm rounded-xl p-4">
           <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500">
@@ -79,7 +79,7 @@
 </div>
 
 <br><br>
-                <div id="pie_chart"></div>
+                <div id="pie_chart" class="pr-4 px-3"></div>
               </div>
             </div>
 </div>
@@ -128,5 +128,5 @@
     
     <script src="//www.bing.com/widget/bootstrap.answer.js" async=""></script>
       </script>  
-      
+
 </x-app-layout>

@@ -100,13 +100,13 @@
 
                             <div class="card-body">
                                 <table class="table" id="contacts_table">
-                                <thead>
+                                    @foreach ($doctorPatients as $index => $doctor)
+                                    <thead>
                                     <tr>
-                                        <th>Traced by</th>
+                                        <th>Assigned To</th>
                                         <th>Nickname</th>
                                     </tr>
                                     </thead>
-                                    @foreach ($doctorPatients as $index => $doctor)
                                     <tbody>
                                 <tr>
                                     <td>
@@ -120,11 +120,47 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                        <td>
+                                            <td>
                                                 <input type="text"
                                                     name="doctorPatients[{{$index}}][nickname]"
                                                     class="form-control rounded-pill"
                                                     wire:model="doctorPatients.{{$index}}.nickname" />
+                                            </td>
+                                        </tr>
+
+                                        <thead>
+                                            <tr>
+                                                <th>Region</th>
+                                                <th>Phone Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                    <td>
+                    <select name="doctorPatients[{{$index}}][region]" wire:model="doctorPatients.{{$index}}.region" id="region">
+                            <option value="NCR" value="{{ old('region') }}" name="region" >NCR</option>
+                            <option value="CAR"  value="{{ old('region') }}" name="region" >CAR</option>
+                            <option value="Region I" value="{{ old('region') }}" name="region" >Region I</option>
+                            <option value="Region II" value="{{ old('region') }}" name="region" > Region II</option>
+                            <option value="Region III" value="{{ old('region') }}" name="region" >Region III</option>
+                            <option value="Region IV-A" value="{{ old('region') }}" name="region" >Region IV-A</option>
+                            <option value="Mimaropa"value="{{ old('region') }}" name="region" >Mimaropa</option>
+                            <option value="Region VI" value="{{ old('region') }}" name="region" >Region VI</option>
+                            <option value="Region VII"value="{{ old('region') }}" name="region" >Region VII</option>
+                            <option value="Region VIII" value="{{ old('region') }}" name="region" >Region VIII</option>
+                            <option value="Region IX" value="{{ old('region') }}" name="region" >Region IX</option>
+                            <option value="Region X" value="{{ old('region') }}" name="region" >Region X</option>
+                            <option value="Region XI" value="{{ old('region') }}"  name="region" >Region XI</option>
+                            <option value="Region XII" value="{{ old('region') }}" name="region" >Region XII</option>
+                            <option value="Region XIII" value="{{ old('region') }}" name="region" >Region XIII</option>
+                            <option value="BARMM" value="{{ old('region') }}" name="region" >BARMM</option>
+                            
+                        </select>
+                        </td>
+                                            <td>
+                                                <input type="number"
+                                                    name="doctorPatients[{{$index}}][phonenumber]"
+                                                    class="form-control rounded-pill"
+                                                    wire:model="doctorPatients.{{$index}}.phonenumber" />
                                             </td>
                                             <td>
                                             <button class="btn btn-sm btn-danger rounded-pill"
@@ -132,7 +168,7 @@
                                             Delete</button>
                                             </td>
                                         </tr>
-                                        
+
                                     </tbody>
                                         @endforeach
                                 </table>

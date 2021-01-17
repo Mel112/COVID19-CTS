@@ -34,14 +34,16 @@
             @endif
 
             <table class="border table-fixed text-center" id="dtable">
-                <thead>
+                <thead class="">
                     <tr class="bg-gray-500 text-white">
-                        <th onclick="sortTable(0)" class="px-4 py-2">Contact ID</th>
-                        <th onclick="sortTable(1)" class="px-4 py-2">Nickname</th>
-                        <th onclick="sortTable(2)" class="px-4 py-2">Doctors ID</th>
-                        <th onclick="sortTable(3)" class="px-4 py-2">Patients ID</th>
-                        <th onclick="sortTable(4)" class="px-4 py-2">Created at</th>
-                        <th class="px-5 py-2">Actions</th>
+                        <th onclick="sortTable(0)" class="px-2 py-2 w-1">Contact ID</th>
+                        <th onclick="sortTable(1)" class="px-2 py-2 w-1">Nickname</th>
+                        <th onclick="sortTable(2)" class="px-3 py-2 w-1">Phone Number</th>
+                        <th onclick="sortTable(3)" class="px-2 py-2 w-1">Region</th>
+                        <th onclick="sortTable(4)" class="px-2 py-2 w-1">Doctors ID</th>
+                        <th onclick="sortTable(5)" class="px-2 py-2 w-1">Patients ID</th>
+                        <th onclick="sortTable(6)" class="px-3 py-2 w-1">Created at</th>
+                        <th class="px-2 py-2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,10 +51,12 @@
                     <tr>
                         <td class="border">{{ $doctor->id }}</td>
                         <td class="border">{{ $doctor->nickname }}</td>
+                        <td class="border">{{ $doctor->phonenumber }}</td>
+                        <td class="border">{{ $doctor->region }}</td>
                         <td class="border">{{ $doctor->doctor_id }}</td>
                         <td class="border">{{ $doctor->patient_id }}</td>
                         <td class="border">{{ $doctor->created_at }}</td>
-                        <td class="px-4 py-2 border">
+                        <td class="px-2 py-2 border">
                         <form action="{{ route('contacts.destroy',$doctor->id) }}" method="POST">
             
                                 <a class="btn btn-primary rounded-pill" href="{{ route('contacts.show',$doctor->id) }}">Show</a>
