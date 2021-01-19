@@ -51,9 +51,6 @@ Route::resource('doctors', DoctorsTableController::class);
 Route::resource('contacts', ContactController::class);
 Route::resource('information', InformationController::class);
 
-
-Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-
 // PDF
 Route::get('pdf/preview', [PDFController::class, 'preview'])->name('pdf.preview');
 Route::get('pdf/preview1', [PDFController::class, 'preview1'])->name('pdf.preview1');

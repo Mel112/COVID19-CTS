@@ -9,6 +9,8 @@ class PieController extends Controller
 {
     public function googlePieChartPatients()
     {
+      $patients = Patient::all();
+
         $data = DB::table('patients')
            ->select(
             DB::raw('status as status'),
@@ -20,7 +22,7 @@ class PieController extends Controller
         {
           $array[++$key] = [$value->status, $value->number];
         }
-        return view('dashboard')->with('status', json_encode($array));
+        return view('dashboard',compact('patients'))->with('status', json_encode($array));
     }
 
     public function googlePieChartRegion()
