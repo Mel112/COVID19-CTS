@@ -99,14 +99,14 @@
 
             <div class="modal-content">
             <div class="modal-header alert-success">
-                <h4 class="modal-title">Add New Contact Doctor</h4>
+                <h4 class="modal-title">Add New Doctor</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <p>Are you sure that you want to add this doctor?</p>
             </div>
             <div class="modal-footer">
-                <input type="submit" class="btn btn-success shadow-sm rounded-pill" value="+ Add New Contact Doctor">
+                <input type="submit" class="btn btn-success shadow-sm rounded-pill" value="+ Add New Doctor">
                 <button type="button" class="btn btn-dark shadow-sm rounded-pill px-5" data-dismiss="modal">No</button>
             </div>
             </div>
