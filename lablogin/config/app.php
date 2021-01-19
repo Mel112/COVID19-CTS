@@ -234,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => \Maatwebsite\Excel\Facade\Excel::class,
+        'Carbon' => 'Carbon\Carbon',
 
     ],
 

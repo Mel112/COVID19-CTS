@@ -6,11 +6,11 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12"> 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg py-5 ">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-<h1>COVID-19 Patients</h2>
+<h1>COVID-19 Patients</h1> 
 <br>
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
@@ -24,7 +24,7 @@
                             <a class="btn btn-success rounded-pill" href="{{ route('patients.create') }}"> + Add New COVID-19 Patient</a>
                         </div>
                     </div>
-                </div>
+                </div> 
 <br>   
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -67,27 +67,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="button" class="btn btn-danger shadow-sm rounded-pill" data-toggle="modal" data-target="#deleteStudentModal">Delete</button>
-                                <div id="deleteStudentModal" class="modal fade" role="dialog">
-                                <div class="modal-dialog modal-dialog-centered">
-
-                                    <div class="modal-content">
-                                    <div class="modal-header alert-danger">
-                                        <h4 class="modal-title">Delete COVID-19 Patient</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure that you want to delete this COVID-19 Patient?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="submit" class="btn btn-danger shadow-sm rounded-pill" value="Delete COVID-19 Patient">
-                                        <button type="button" class="btn btn-dark shadow-sm rounded-pill px-5" data-dismiss="modal">No</button>
-                                    </div>
-                                    </div>
-
-                                </div>
-                                </div>
-
+                                
                         </form>
                         </td>
                     </tr>

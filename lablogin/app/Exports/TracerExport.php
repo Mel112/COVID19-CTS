@@ -21,6 +21,6 @@ class TracerExport implements FromCollection,WithHeadings
 
     public function collection()
     {
-        return collect(Doctor::getTracers());
+        return collect(Doctor::getDoctors());
     }
 }

@@ -78,9 +78,9 @@
               <div class="col-span-6 sm:col-span-3">
                 <label for="status" class="block text-sm font-medium leading-5 text-black">Status</label>
                 <select name="status" id="status">
-                            <option value="Infected"   value="{{ old('status') }}" name="status" >Infected</option>
-                            <option value="Symptomatic"   value="{{ old('status') }}" name="status">Symptomatic</option>
-                            <option value="Asymptomatic"  value="{{ old('status') }}" name="status">Asymptomatic</option>
+                            <option value="Active"  value="{{ old('status') }}" name="status">Active</option>
+                            <option value="Recovered"  value="{{ old('status') }}" name="status">Recovered</option>
+                            <option value="Deceased"  value="{{ old('status') }}" name="status">Deceased</option>
                             
                         </select>              
                         </div>

@@ -23,7 +23,7 @@ class ExcelExport implements FromCollection,WithHeadings
     public function collection()
     {
 
-        return collect(Patient::getSuspects());
+        return collect(Patient::getPatients());
 
     }
 }

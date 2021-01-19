@@ -8,12 +8,12 @@
   <div class="p-1 w-full"></div>
 </div>
 
-      <div class="mx-1 pt-5">
+      <div class="mx-5 pt-5">
    <div class="grid gap-6 mb-8 md:grid-cols-1">
       <div class="min-w-0 p-4 text-gray-800 bg-white rounded-xl shadow-sm">
-      <h4 class="mb-4 font-semibold">
-        COVID-19 Trace System Records
-      </h4>
+      <h1 class="mb-4 font-semibold">
+        Export COVID19 Data
+      </h1>
 
   <div class="dropdown show">
   <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +41,7 @@
 </div> <!-- end of panel heading -->
     <table class="border table-fixed text-center">
         <thead>
-            <tr class="bg-gray-400 text-white">
+            <tr class="bg-gray-500 text-white">
                 <th class="px-8 py-2 w-10">FirstName</th>
                 <th class="px-8 py-2 w-10">LastName</th>
                 <th class="px-8 py-2 w-10">Status</th>
@@ -74,7 +74,7 @@
 </div> <!-- end of panel heading -->
     <table class="border table-fixed text-center">
         <thead>
-            <tr class="bg-gray-400 text-white">
+            <tr class="bg-gray-500 text-white">
                 <th class="px-8 py-2 w-10">Contact ID</th>
                 <th class="px-8 py-2 w-10">NickName</th>
                 <th class="px-8 py-2 w-10">Phone Number</th>
@@ -107,10 +107,9 @@
 </div> <!-- end of panel heading -->
     <table class="border table-fixed text-center">
         <thead>
-            <tr class="bg-gray-400 text-white">
+            <tr class="bg-gray-500 text-white">
                 <th class="px-8 py-2 w-10">FirstName</th>
                 <th class="px-8 py-2 w-10">LastName</th>
-                <th class="px-8 py-2 w-10">Status</th>
                 <th class="px-8 py-2 w-10">Age</th>
                 <th class="px-8 py-2 w-10">Gender</th>
                 <th class="px-8 py-2 w-10">PhoneNo.</th>
@@ -122,7 +121,6 @@
                 <tr>
                     <td class="border">{{ $doctor->firstname }}</td>
                     <td class="border">{{ $doctor->lastname }}</td>
-                    <td class="border">{{ $doctor->status }}</td>
                     <td class="border">{{ $doctor->age }}</td>
                     <td class="border">{{ $doctor->gender }}</td>
                     <td class="border">{{ $doctor->phonenumber }}</td>

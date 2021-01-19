@@ -4,6 +4,7 @@ use App\Http\Livewire\Patients;
 use App\Http\Livewire\Contacts;
 use App\Http\Livewire\Doctors;
 use App\Http\Livewire\DoctorPatients;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PatientController;
@@ -50,6 +51,8 @@ Route::resource('doctors', DoctorsTableController::class);
 Route::resource('contacts', ContactController::class);
 Route::resource('information', InformationController::class);
 
+
+Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 // PDF
 Route::get('pdf/preview', [PDFController::class, 'preview'])->name('pdf.preview');

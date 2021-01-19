@@ -52,8 +52,8 @@
           </div>
           <div class="hidden md:block md:ml-10 md:pr-4">
             <a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Home</a>
-            <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features</a>
-            <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">About</a>
+            <a href="#feature" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features</a>
+            <a href="#data" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Data Privacy</a>
           </div>
         </nav>
       </div>
@@ -140,13 +140,12 @@
 </div>
 
 <!-- Features -->
-<section class="blog text-gray-700 body-font">
+<section class="blog text-gray-700 body-font" id="feature">
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Features</h1>
           <p class="lg:w-1/2 w-full leading-relaxed text-base">
-            J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en place un blog personnel.
-						Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes développeurs pour mieux s'en sortir.          </p>
+          Trace.PH is the Philippines’ official health condition contact tracing system that empowers the public in the fight against COVID-19.  </p>
         </div>
         <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
           <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
@@ -162,7 +161,8 @@
               </div>
               <div class="title-post font-medium">Tables</div>
 
-              <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+              <div class="summary-post text-base text-justify"> Single DataBase Management System that will be added and modified. The system handles information that allows the user of
+the website to easily find records.
                 <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Read more</span></button>
               </div>
              
@@ -182,7 +182,7 @@
               </div>
               <div class="title-post font-medium">Charts</div>
 
-              <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+              <div class="summary-post text-base text-justify">Allows the administrator to easily and conveniently see the percentage, distribution, and allocation of all of the data. This is represented by a chart.
                 <button class="bg-blue-100 text-blue-500 px-2 mt-4 block rounded p-2 text-sm"><span class="">Read more</span></button>
               </div>
              
@@ -202,7 +202,7 @@
               </div>
               <div class="title-post font-medium">Export Data</div>
 
-              <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+              <div class="summary-post text-base text-justify">Allows the administrator to download or export the list of data that is available at that point of time. It can be exported to a pdf file, .csv file, and .xslx file. 
                 <button class="bg-blue-100 text-blue-500 px-2 mt-4 block rounded p-2 text-sm"><span class="">Read more</span></button>
               </div>
              
@@ -212,6 +212,30 @@
         </div>
       </div>
     </section>
+
+<!-- Data Privacy -->
+
+<section class="blog text-gray-700 body-font" id="data">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Data Privacy</h1>
+          <p>
+        
+Trace.PH is the Philippines’ official health condition contact tracing system that empowers the public in the fight against COVID-19. By aggregating allreports, Trace.PH enables the Government to immediately respond to peoples’ needs and makeinformed and timely decisions to keep Filipinos safe in the midst of this pandemic.The system, whichis made available in desktop and mobile version, aims to complement the management of COVID-19cases, to remind individuals in observing physical distancing measures, to record and monitorindividual’S COVID-19 symptoms, and to augment manual contact tracing processes. In this Privacy Notice We process your information pursuant to Republic ActNo. 11332 (the “Mandatory Reporting of Notifiable Diseases and Health Events of Public HealthConcern Act”) and in accordance with Republic Act No. 10173 (the “Data Privacy Act”). We may amend this Privacy Notice from time to time. When certain changes require your consent,we shall communicate the changes to you and ask for your consent. Otherwise, changes take effectimmediately upon posting.
+<br><br><br><br>
+<h1 class="sm:text-3xl text-2xl font-small title-font mb-2 text-gray-900">How We Secure Information</h1>
+We implement reasonable and appropriate physical, technical, and organizational measures to prevent the loss, destruction, misuse, or alteration of your information. While there is noguarantee that information sent over the internet is fully secured, we keep and protect yourinformation using a secured server behind a firewall, encryption, and security controls.
+
+</p>
+
+
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+
 <!-- Footer --> 
 <div class="bg-gray-900">
    <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-center">
@@ -242,7 +266,7 @@
 <div class="bg-gray-900 pt-2 ">
    <div class="flex pb-5 px-3 m-auto pt-5 border-t text-gray-500 flex-col
       md:flex-row max-w-6xl">
-      <div class="mt-2">© Copyright 2020. All Rights Reserved.</div>
+      <div class="mt-2">© Copyright 2021. All Rights Reserved.</div>
       <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
          <a href="/#" class="w-6 mx-1">
             <svg class="fill-current cursor-pointer text-gray-500 hover:text-gray-400" width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">

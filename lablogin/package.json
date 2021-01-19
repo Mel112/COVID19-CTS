@@ -29,5 +29,8 @@
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
-    "name": "lablogin"
+    "name": "lablogin",
+    "dependencies": {
+        "darkmode-js": "^1.5.7"
+    }
 }

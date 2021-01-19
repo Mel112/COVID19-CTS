@@ -24,7 +24,7 @@ class PatientFactory extends Factory
         return [
             'firstname'=>$this->faker->firstname,
             'lastname'=>$this->faker->lastname,
-            'status'=>$this->faker->randomElement(['Infected', 'Symptomatic', 'Asymptomatic']),
+            'status'=>$this->faker->randomElement(['Active', 'Recovered', 'Deceased']),
             'age'=>$this->faker->numberBetween($min=1, $max=99),
             'gender'=>$this->faker->randomElement(['Male','Female']),
             'phonenumber'=>$this->faker->e164PhoneNumber,

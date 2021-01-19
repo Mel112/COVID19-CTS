@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Patient;
 use Illuminate\Http\Request;
 use DB;
 
@@ -25,6 +25,8 @@ class PieController extends Controller
 
     public function googlePieChartRegion()
     {
+      $patients = Patient::all();
+
         $data = DB::table('patients')
            ->select(
             DB::raw('region as region'),
@@ -36,6 +38,7 @@ class PieController extends Controller
         {
           $array[++$key] = [$value->region, $value->number];
         }
-        return view('pieChartRegion')->with('region', json_encode($array));
+        return view('pieChartRegion',compact('patients'))->with('region', json_encode($array));
     }
+    
 }

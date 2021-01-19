@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
-use App\Models\Doctor;
 use App\Models\Patient;
-use App\Models\Contact;
+use App\Models\DoctorPatient;
+use App\Models\Doctor;
 
 use Excel;
 use App\Exports\ExcelExport;
@@ -19,50 +19,50 @@ class PDFController extends Controller
 {
     public function preview()
     {
-        $doctors = Doctor::all();
         $patients = Patient::all();
-        $doctor_patient = Contact::all();
+        $doctor_patient = DoctorPatient::all();
+        $doctors = Doctor::all();
         return view('preview',compact('doctor_patient','doctors','patients'));
     }
 
     public function generatePDF()
     {
-        $doctors = Doctor::all();
         $patients = Patient::all();
-        $doctor_patient = Contact::all();
+        $doctor_patient = DoctorPatient::all();
+        $doctors = Doctor::all();
         $pdf = PDF::loadView('preview1',compact('doctor_patient','doctors','patients'));
 
-        return $pdf->download('tracerecord.pdf');
+        return $pdf->download('trace(allrecord).pdf');
     }
 
     public function generate1()
     {
-        $doctors = Doctor::all();
         $patients = Patient::all();
-        $doctor_patient = Contact::all();
+        $doctor_patient = DoctorPatient::all();
+        $doctors = Doctor::all();
         $pdf1 = PDF::loadView('preview2',compact('doctor_patient','doctors','patients'));
 
-        return $pdf1->download('patients.pdf');
+        return $pdf1->download('trace(patients).pdf');
     }
 
     public function generate2()
     {
-        $doctors = Doctor::all();
         $patients = Patient::all();
-        $doctor_patient = Contact::all();
+        $doctor_patient = DoctorPatient::all();
+        $doctors = Doctor::all();
         $pdf2 = PDF::loadView('preview3',compact('doctor_patient','doctors','patients'));
 
-        return $pdf2->download('closecontacts.pdf');
+        return $pdf2->download('trace(closecontacts).pdf');
     }
 
     public function generate3()
     {
-        $doctors = Doctor::all();
         $patients = Patient::all();
-        $doctor_patient = Contact::all();
+        $doctor_patient = DoctorPatient::all();
+        $doctors = Doctor::all();
         $pdf3 = PDF::loadView('preview4',compact('doctor_patient','doctors','patients'));
 
-        return $pdf3->download('doctors.pdf');
+        return $pdf3->download('trace(doctors).pdf');
     }
 
 
@@ -71,8 +71,8 @@ class PDFController extends Controller
         $patients  = Patient::all();
         Patient::insert($patients);
 
-        $contacts  = Contact::all();
-        Contact::insert($contacts);
+        $doctor_patient = DoctorPatient::all();
+        DoctorPatient::insert($doctor_patient);
 
         $doctors  = Doctor::all();
         Doctor::insert($doctors);
@@ -81,34 +81,34 @@ class PDFController extends Controller
 
     public function exportExcel()
     {
-        return Excel::download(new ExcelExport,'patient.xlsx');   
+        return Excel::download(new ExcelExport,'patients.xlsx');   
     }
 
     public function exportCSV()
     {
-        return Excel::download(new ExcelExport,'patient.csv');
+        return Excel::download(new ExcelExport,'patients.csv');
     }
 
     public function exportExcel1()
     {
-        return Excel::download(new ContactExport,'contact.xlsx');
+        return Excel::download(new ContactExport,'doctor_patient.xlsx');
     }
 
     public function exportCSV1()
     {
-        return Excel::download(new ContactExport,'contact.csv');
+        return Excel::download(new ContactExport,'doctor_patient.csv');
     }
 
 
     public function exportExcel2()
     {
-        return Excel::download(new TracerExport,'doctor.xlsx');  
+        return Excel::download(new TracerExport,'doctors.xlsx');  
     }
 
     public function exportCSV2()
     {
                 
-        return Excel::download(new TracerExport,'doctor.csv');
+        return Excel::download(new TracerExport,'doctors.csv');
 
     }
 
