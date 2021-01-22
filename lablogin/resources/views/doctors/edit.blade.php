@@ -16,7 +16,7 @@
 
                 <div class="row">
     <div class="col-lg-12 margin-tb">
-    <h1>Edit Contact Doctor</h1>
+    <h1>Edit Doctor</h1>
     </div>
 </div>
    
@@ -94,21 +94,21 @@
     <br><br>
 
 
-            <button type="button" class="btn btn-warning shadow-sm rounded-pill px-5" data-toggle="modal" data-target="#editStudentModal">Edit Contact Doctor</button>
+            <button type="button" class="btn btn-warning shadow-sm rounded-pill px-5" data-toggle="modal" data-target="#editStudentModal">Edit Doctor</button>
         <a class="btn btn-dark rounded-pill" href="{{ route('doctors.index') }}"> Back</a>
         <div id="editStudentModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
 
             <div class="modal-content">
             <div class="modal-header alert-warning">
-                <h4 class="modal-title">Edit Contact Doctor</h4>
+                <h4 class="modal-title">Edit Doctor</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <p>Are you sure that you want to edit this contact doctor?</p>
+                <p>Are you sure that you want to edit this doctor?</p>
             </div>
             <div class="modal-footer">
-                <input type="submit" class="btn btn-warning shadow-sm rounded-pill" value="Edit Contact Doctor">
+                <input type="submit" class="btn btn-warning shadow-sm rounded-pill" value="Edit Doctor">
                 <button type="button" class="btn btn-dark shadow-sm rounded-pill px-5" data-dismiss="modal">No</button>
             </div>
             </div>

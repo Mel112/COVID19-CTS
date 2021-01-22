@@ -79,7 +79,7 @@
                                         <p>Are you sure that you want to delete this doctor?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <input type="submit" class="btn btn-danger shadow-sm rounded-pill" value="Delete Contact Doctor">
+                                        <input type="submit" class="btn btn-danger shadow-sm rounded-pill" value="Delete Doctor">
                                         <button type="button" class="btn btn-dark shadow-sm rounded-pill px-5" data-dismiss="modal">No</button>
                                     </div>
                                     </div>

@@ -75,7 +75,7 @@
               <div class="col-span-6 sm:col-span-3">
                 <label for="region" class="block text-sm font-medium leading-5 text-gray-700">Region</label>
                 <select name="region" id="region">
-                            <option value="{{ $doctor->region }}" name="region" >{{ $doctor->region }}</option>
+                            <option value="{{ $patient->region }}" name="region" >{{ $patient->region }}</option>
                             <option value="NCR"  name="region" >NCR</option>
                             <option value="CAR"   name="region" >CAR</option>
                             <option value="Region I"  name="region"   >Region I</option>
