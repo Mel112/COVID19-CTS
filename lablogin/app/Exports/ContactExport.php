@@ -10,12 +10,16 @@ class ContactExport implements FromCollection,WithHeadings
 {
     public function headings():array{
         return[
-            'nickname', 
+            'firstname',
+            'lastname', 
+            'age',
+            'gender',
             'phonenumber', 
             'region',     
             'doctor_id',
             'patient_id',
             'created_at',
+            'updated_at',
         ];
     }
     public function collection()

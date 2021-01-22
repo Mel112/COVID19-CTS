@@ -18,10 +18,10 @@ class ContactController extends Controller
 
     public function index()
     {
-        $doctorPatient = DoctorPatient::latest()->paginate(15);
+        $doctorPatient = DoctorPatient::latest()->paginate(20);
     
         return view('contacts.index',compact('doctorPatient'))
-            ->with('i', (request()->input('page', 1) - 1) * 15);
+            ->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
             /**
@@ -84,7 +84,10 @@ class ContactController extends Controller
        // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'nickname'=>'required',
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'age'=>'required',
+            'gender'=>'required',
             'phonenumber'=>'required',
             'region'=>'required',
             'doctor_id'=>'required',
@@ -101,7 +104,10 @@ class ContactController extends Controller
         } else {
             // store
             $doctorPatient = doctorPatient::find($id);
-            $doctorPatient->nickname = Input::get('nickname');
+            $doctorPatient->firstname = Input::get('firstname');
+            $doctorPatient->lastname = Input::get('lastname');
+            $doctorPatient->age = Input::get('age');
+            $doctorPatient->gender = Input::get('gender');
             $doctorPatient->phonenumber = Input::get('phonenumber');
             $doctorPatient->region = Input::get('region');
             $doctorPatient->doctor_id  = Input::get('doctor_id');

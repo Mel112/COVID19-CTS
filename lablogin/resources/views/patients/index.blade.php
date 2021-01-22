@@ -43,6 +43,8 @@
                         <th onclick="sortTable(5)" class="px-2 py-2 w-5">Gender</th>
                         <th onclick="sortTable(6)" class="px-3 py-2 w-5">Phone Number</th>
                         <th onclick="sortTable(7)" class="px-2 py-2">Region</th>
+                        <th onclick="sortTable(8)" class="px-2 py-2">Created at</th>
+                        <th onclick="sortTable(8)" class="px-2 py-2">Updated at</th>
                         <th class="px-3 py-2 w-30">Action</th>
                     </tr>
                 </thead>
@@ -57,6 +59,8 @@
                         <td class="border">{{ $patient->gender }}</td>
                         <td class="border">{{ $patient->phonenumber }}</td>
                         <td class="border">{{ $patient->region }}</td>
+                        <td class="border">{{ $patient->created_at }}</td>
+                        <td class="border">{{ $patient->updated_at }}</td>
                         <td class="px-4 py-2 border">
                         <form action="{{ route('patients.destroy',$patient->id) }}" method="POST">
             

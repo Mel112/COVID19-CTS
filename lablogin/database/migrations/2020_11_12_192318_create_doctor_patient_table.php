@@ -15,7 +15,10 @@ class CreateDoctorPatientTable extends Migration
     {
         Schema::create('doctor_patient', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nickname');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('age');
+            $table->string('gender');
             $table->string('phonenumber');
             $table->string('region');
             $table->foreignId('doctor_id');

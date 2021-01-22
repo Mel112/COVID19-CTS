@@ -49,6 +49,7 @@ Route::get('dashboard', [PieController::class, 'googlePieChartPatients'])
 Route::resource('patients', PatientController::class);
 Route::resource('doctors', DoctorsTableController::class);
 Route::resource('contacts', ContactController::class);
+
 Route::resource('information', InformationController::class);
 
 // PDF
@@ -61,12 +62,15 @@ Route::get('pdf/generate', [PDFController::class, 'generatePDF'])->name('pdf.gen
 Route::get('pdf1/generate', [PDFController::class, 'generate1'])->name('pdf1.generate');
 Route::get('pdf2/generate', [PDFController::class, 'generate2'])->name('pdf2.generate');
 Route::get('pdf3/generate', [PDFController::class, 'generate3'])->name('pdf3.generate');
+
 //Excel 1
 Route::get('/export-excel', [PDFController::class, 'exportExcel'])->name('excel.generate');
 Route::get('/export-csv', [PDFController::class, 'exportCSV'])->name('csv.generate');
+
 //Excel 2
 Route::get('/export-excel1', [PDFController::class, 'exportExcel1'])->name('excel1.generate');
 Route::get('/export-csv1', [PDFController::class, 'exportCSV1'])->name('csv1.generate');
+
 //Excel 3
 Route::get('/export-excel2', [PDFController::class, 'exportExcel2'])->name('excel2.generate');
 Route::get('/export-csv2', [PDFController::class, 'exportCSV2'])->name('csv2.generate');

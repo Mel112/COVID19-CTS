@@ -87,8 +87,8 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="phonenumber" class="block text-sm font-medium leading-5 text-black">Phone Number</label>
-                <input type="text" name="phonenumber" class="form-control rounded-pill"
-                   value="{{ old('phonenumber') }}" required class="form-control rounded-pill" placeholder="Phone Number">
+                <input type="tel" name="phonenumber" class="form-control rounded-pill"
+                   value="{{ old('phonenumber') }}" required class="form-control rounded-pill" placeholder="Phone Number" maxlength ="11">
               </div>
     </div>
 <br><br>
@@ -104,7 +104,6 @@
                                     <thead>
                                     <tr>
                                         <th>Assigned To</th>
-                                        <th>Nickname</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -113,21 +112,61 @@
                                             <select name="doctorPatients[{{$index}}][doctor_id]"
                                         wire:model="doctorPatients.{{$index}}.doctor_id"
                                         class="form-control rounded-pill">
-                                    <option value="">contact doctors list</option>
+                                    <option value="">doctors list</option>
                                     @foreach ($allDoctors as $doctor)
                                         <option value="{{ $doctor->id }}">
                                         {{ $doctor->lastname }} {{ $doctor->firstname }}
                                         </option>
                                     @endforeach
                                 </select>
+                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                    </tr>
+                                    </thead>
+                                <tr>
                                             <td>
                                                 <input type="text"
-                                                    name="doctorPatients[{{$index}}][nickname]"
+                                                    name="doctorPatients[{{$index}}][firstname]"
                                                     class="form-control rounded-pill"
-                                                    wire:model="doctorPatients.{{$index}}.nickname" />
+                                                    wire:model="doctorPatients.{{$index}}.firstname" />
                                             </td>
-                                        </tr>
+                                            <td>
+                                                <input type="text"
+                                                    name="doctorPatients[{{$index}}][lastname]"
+                                                    class="form-control rounded-pill"
+                                                    wire:model="doctorPatients.{{$index}}.lastname" />
+                                            </td>
 
+                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                    </tr>
+                                    </thead>
+                                <tr>
+                                            <td>
+                                                <input type="number"
+                                                    name="doctorPatients[{{$index}}][age]"
+                                                    class="form-control rounded-pill"
+                                                    wire:model="doctorPatients.{{$index}}.age" />
+                                            </td>
+                                            <td>
+                                                <input type="radio" id="male" value="Male"
+                                                    name="doctorPatients[{{$index}}][gender]"
+                                                    wire:model="doctorPatients.{{$index}}.gender"/>
+                                                    <label for="male">Male</label>
+
+                                                    <input type="radio" id="female" value="Female"
+                                                    name="doctorPatients[{{$index}}][gender]"
+                                                    wire:model="doctorPatients.{{$index}}.gender"/>
+                                                    <label for="female">Female</label>
+                                            </td>
+
+                                </tr>
                                         <thead>
                                             <tr>
                                                 <th>Region</th>
@@ -157,10 +196,10 @@
                         </select>
                         </td>
                                             <td>
-                                                <input type="number"
+                                                <input type="tel"
                                                     name="doctorPatients[{{$index}}][phonenumber]"
                                                     class="form-control rounded-pill"
-                                                    wire:model="doctorPatients.{{$index}}.phonenumber" />
+                                                    wire:model="doctorPatients.{{$index}}.phonenumber" maxlength ="11" />
                                             </td>
                                             <td>
                                             <button class="btn btn-sm btn-danger rounded-pill"

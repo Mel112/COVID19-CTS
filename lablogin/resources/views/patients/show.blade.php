@@ -70,6 +70,18 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Created at:</strong>
+                {{ $patient->created_at }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Updated at:</strong>
+                {{ $patient->updated_at }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
             <a class="btn btn-dark rounded-pill px-5" href="{{ route('patients.index') }}"> Back</a>
             </div>
         </div>

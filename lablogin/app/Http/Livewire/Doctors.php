@@ -14,12 +14,12 @@ class Doctors extends Component
     public function mount()
     {
         $this->allDoctors = Doctor::all();
-        $this->doctorPatients =  [['doctor_id' => '', 'nickname' => '', 'phonenumber' => '', 'region' => '']];
+        $this->doctorPatients =  [['doctor_id' => '', 'firstname' => '', 'lastname' => '','age' => '', 'gender' => '', 'phonenumber' => '', 'region' => '']];
     }
 
     public function addContact()
     {
-        $this->doctorPatients[] = ['doctor_id' => '', 'nickname' => '', 'phonenumber' => '', 'region' => ''];
+        $this->doctorPatients[] = ['doctor_id' => '', 'firstname' => '', 'lastname' => '','age' => '', 'gender' => '', 'phonenumber' => '', 'region' => ''];
     }
 
     public function removeContact($index)

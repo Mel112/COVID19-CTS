@@ -37,26 +37,60 @@
     
     <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="px-1 py-1 bg-white sm:p-6">
-            <div class="grid grid-cols-2 gap-3">
-              <div class="col-span-2 sm:col-span-3">
-                <label for="nickname" class="block text-sm font-medium leading-5 text-gray-700">Nickname</label>
-                <input type="text" name="nickname" value="{{ $doctorPatient->nickname }}" class="form-control rounded-pill" placeholder="Nickname">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="firstname" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
+                <input type="text" name="firstname" value="{{ $doctorPatient->firstname }}" class="form-control rounded-pill" placeholder="First Name">
 
               </div>
-              <div class="col-span-2 sm:col-span-3">
-                <label for="doctor_id" class="block text-sm font-medium leading-5 text-gray-700">Doctor ID</label>
-                <input type="number" name="doctor_id" value="{{ $doctorPatient->doctor_id }}" class="form-control rounded-pill" placeholder="Doctor ID" min="1">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="lastname" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
+                <input type="text" name="lastname" value="{{ $doctorPatient->lastname }}" class="form-control rounded-pill" placeholder="Last Name">
               </div>
 
-              <div class="col-span-2 sm:col-span-3">
-                <label for="patient_id" class="block text-sm font-medium leading-5 text-gray-700">Patient ID</label>
-                <input type="number" name="patient_id" value="{{ $doctorPatient ->patient_id }}" class="form-control rounded-pill" placeholder="Patient ID" min="1">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="age" class="block text-sm font-medium leading-5 text-gray-700">Age</label>
+                <input type="number" name="age" value="{{ $doctorPatient->age }}" class="form-control rounded-pill" placeholder="Age" min ="1">
               </div>
 
-              <div class="col-span-2 sm:col-span-3">
-                <label for="created_at" class="block text-sm font-medium leading-5 text-gray-700">Created at</label>         
-                <input type="date" name="created_at" value="{{ $doctorPatient->created_at }}" class="form-control rounded-pill" placeholder="Created at">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="gender" class="block text-sm font-medium leading-5 text-gray-700">Gender</label>         
+                Current choice: {{ $doctorPatient->gender }} <br><br>
+                <input type="radio" id="male" name="gender" value="Male" >
+                    <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female" >
+                    <label for="female">Female</label>
               </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="region" class="block text-sm font-medium leading-5 text-gray-700">Region</label>
+                <select name="region" id="region">
+                            <option value="{{ $doctorPatient->region }}" name="region" >{{ $doctorPatient->region }}</option>
+                            <option value="NCR"  name="region" >NCR</option>
+                            <option value="CAR"   name="region" >CAR</option>
+                            <option value="Region I"  name="region"   >Region I</option>
+                            <option value="Region II"  name="region"  > Region II</option>
+                            <option value="Region III"  name="region"  >Region III</option>
+                            <option value="Region IV-A"  name="region"  >Region IV-A</option>
+                            <option value="Mimaropa   name="region"  >Mimaropa</option>
+                            <option value="Region VI" name="region"  >Region VI</option>
+                            <option value="Region VII name="region"  >Region VII</option>
+                            <option value="Region VIII"  name="region" >Region VIII</option>
+                            <option value="Region IX" name="region"  >Region IX</option>
+                            <option value="Region X"  name="region"  >Region X</option>
+                            <option value="Region XI"  name="region"   >Region XI</option>
+                            <option value="Region XII"  name="region"   >Region XII</option>
+                            <option value="Region XIII" name="region"  >Region XIII</option>
+                            <option value="BARMM"  name="region"  >BARMM</option>
+                        </select>
+                
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+              <label for="phonenumber" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
+              <input type="tel" name="phonenumber" value="{{ $doctorPatient->phonenumber }}" class="form-control rounded-pill" placeholder="Phone number" maxlength ="11">              </div>
+    </div>
+
     <br>    <div class="col-span-2 sm:col-span-3">
             <button type="button" class="btn btn-warning shadow-sm rounded-pill px-4" data-toggle="modal" data-target="#editStudentModal">Edit Close Contact</button>
         <a class="btn btn-dark rounded-pill py-2" href="{{ route('contacts.index') }}"> Back</a>

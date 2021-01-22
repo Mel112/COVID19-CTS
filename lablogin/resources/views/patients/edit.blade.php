@@ -55,18 +55,19 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="gender" class="block text-sm font-medium leading-5 text-gray-700">Gender</label>         
-                <input type="radio" id="male" name="gender" value="Male" value="{{ $patient->gender }}" >
-                    <label for="male">Male</label><br>
-                <input type="radio" id="female" name="gender" value="Female" value="{{ $patient->gender }}" >
-                    <label for="female">Female</label><br>
+                Current choice: {{ $patient->gender }} <br><br>
+                <input type="radio" id="male" name="gender" value="Male" >
+                    <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female" >
+                    <label for="female">Female</label>
               </div>
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="status" class="block text-sm font-medium leading-5 text-gray-700">Status</label>
                         <select name="status" id="status">
-                            <option value="Infected"  value="{{ $patient->status }}" name="status"  >Infected</option>
-                            <option value="Symptomatic"  value="{{ $patient->status }}" name="status"  >Symptomatic</option>
-                            <option value="Asymptomatic" value="{{ $patient->status }}" name="status"   >Asymptomatic</option>
+                            <option value="Active"  value="{{ $patient->status }}" name="status"  >Active</option>
+                            <option value="Recovered"  value="{{ $patient->status }}" name="status"  >Recovered</option>
+                            <option value="Deceased" value="{{ $patient->status }}" name="status"   >Deceased</option>
                             
                         </select>              
                 </div>
@@ -74,21 +75,22 @@
               <div class="col-span-6 sm:col-span-3">
                 <label for="region" class="block text-sm font-medium leading-5 text-gray-700">Region</label>
                 <select name="region" id="region">
-                            <option value="NCR" value="{{ $patient->region }}"  name="region" >NCR</option>
-                            <option value="CAR"  value="{{ $patient->region }}"  name="region" >CAR</option>
-                            <option value="Region I" value="{{ $patient->region }}"  name="region"   >Region I</option>
-                            <option value="Region II" value="{{ $patient->region }}"  name="region"  > Region II</option>
-                            <option value="Region III" value="{{ $patient->region }}"  name="region"  >Region III</option>
-                            <option value="Region IV-A" value="{{ $patient->region }}"  name="region"  >Region IV-A</option>
-                            <option value="Mimaropa"value="{{ $patient->region }}"   name="region"  >Mimaropa</option>
-                            <option value="Region VI" value="{{ $patient->region }}" name="region"  >Region VI</option>
-                            <option value="Region VII"value="{{ $patient->region }}" name="region"  >Region VII</option>
-                            <option value="Region VIII" value="{{ $patient->region }}"  name="region" >Region VIII</option>
-                            <option value="Region IX" value="{{ $patient->region }}" name="region"  >Region IX</option>
-                            <option value="Region X" value="{{ $patient->region }}"  name="region"  >Region X</option>
-                            <option value="Region XI" value="{{ $patient->region }}"  name="region"   >Region XI</option>
-                            <option value="Region XII" value="{{ $patient->region }}"  name="region"   >Region XII</option>
-                            <option value="Region XIII" value="{{ $patient->region }}" name="region"  >Region XIII</option>
+                            <option value="{{ $doctor->region }}" name="region" >{{ $doctor->region }}</option>
+                            <option value="NCR"  name="region" >NCR</option>
+                            <option value="CAR"   name="region" >CAR</option>
+                            <option value="Region I"  name="region"   >Region I</option>
+                            <option value="Region II"  name="region"  > Region II</option>
+                            <option value="Region III"  name="region"  >Region III</option>
+                            <option value="Region IV-A"  name="region"  >Region IV-A</option>
+                            <option value="Mimaropa   name="region"  >Mimaropa</option>
+                            <option value="Region VI" name="region"  >Region VI</option>
+                            <option value="Region VII name="region"  >Region VII</option>
+                            <option value="Region VIII"  name="region" >Region VIII</option>
+                            <option value="Region IX" name="region"  >Region IX</option>
+                            <option value="Region X"  name="region"  >Region X</option>
+                            <option value="Region XI"  name="region"   >Region XI</option>
+                            <option value="Region XII"  name="region"   >Region XII</option>
+                            <option value="Region XIII" name="region"  >Region XIII</option>
                             <option value="BARMM" value="{{ $patient->region }}"  name="region"  >BARMM</option>
                         </select>
                 
@@ -96,7 +98,7 @@
 
               <div class="col-span-6 sm:col-span-3">
               <label for="phonenumber" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
-              <input type="text" name="phonenumber" value="{{ $patient->phonenumber }}" class="form-control rounded-pill" placeholder="Phone number">              </div>
+              <input type="tel" name="phonenumber" value="{{ $patient->phonenumber }}" class="form-control rounded-pill" placeholder="Phone number" maxlength ="11">              </div>
     </div>
     <br><br>
 

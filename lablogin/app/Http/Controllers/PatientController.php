@@ -16,10 +16,10 @@ class PatientController extends Controller
 
     public function index()
     {
-        $patients = Patient::latest()->paginate(15);
+        $patients = Patient::latest()->paginate(20);
     
         return view('patients.index',compact('patients'))
-            ->with('i', (request()->input('page', 1) - 1) * 15);
+            ->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
         /**
@@ -54,7 +54,7 @@ class PatientController extends Controller
         ]);
 
         foreach ($request->doctorPatients as $doctorPatient) {
-            $patient->doctors()->attach($doctorPatient['doctor_id'], ['nickname' => $doctorPatient['nickname'], 'phonenumber' => $doctorPatient['phonenumber'], 'region' => $doctorPatient['region']]);
+            $patient->doctors()->attach($doctorPatient['doctor_id'], ['firstname' => $doctorPatient['firstname'], 'lastname' => $doctorPatient['lastname'], 'age' => $doctorPatient['age'], 'gender' => $doctorPatient['gender'], 'phonenumber' => $doctorPatient['phonenumber'], 'region' => $doctorPatient['region']]);
         }
 
         return redirect()->route('patients.index')
@@ -101,7 +101,6 @@ class PatientController extends Controller
             'gender'=>'required',
             'phonenumber'=>'required',
             'region'=>'required',
-            
         ]);
 
         $patient->update($request->all());

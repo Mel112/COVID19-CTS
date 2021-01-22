@@ -15,10 +15,10 @@ class DoctorsTableController extends Controller
 
     public function index()
     {
-        $doctors = Doctor::latest()->paginate(15);
+        $doctors = Doctor::latest()->paginate(20);
     
         return view('doctors.index',compact('doctors'))
-            ->with('i', (request()->input('page', 1) - 1) * 15);
+            ->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
         /**

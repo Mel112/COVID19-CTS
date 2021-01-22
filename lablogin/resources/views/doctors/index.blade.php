@@ -49,7 +49,7 @@
                 <tbody>
                     @foreach($doctors as $doctor)
                     <tr>
-                        <td class="border">{{ ++$i}}</td>
+                        <td class="border">{{ $doctor->id }}</td>
                         <td class="border">{{ $doctor->firstname }}</td>
                         <td class="border">{{ $doctor->lastname }}</td>
                         <td class="border">{{ $doctor->age }}</td>

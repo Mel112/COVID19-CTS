@@ -13,10 +13,10 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left px-1 py-1">
-                        <input type="text" id="input1" onkeyup="searchtracer()" class="float-left bg-gray-200 text-black py-2 px-4 rounded-full" placeholder="Search Doctors ID" title="Type something">
+                        <input type="text" id="input1" onkeyup="searchtracer()" class="float-left bg-gray-200 text-black py-2 px-4 rounded-full" placeholder="Search First Name" title="Type something">
                         </div>
                         <div class="pull-left px-1 py-1">
-                        <input type="text" id="input2" onkeyup="searchsuspect()" class="float-left bg-gray-200 text-black py-2 px-4 rounded-full" placeholder="Search Patients ID" title="Type something">
+                        <input type="text" id="input2" onkeyup="searchsuspect()" class="float-left bg-gray-200 text-black py-2 px-4 rounded-full" placeholder="Search last Name" title="Type something">
                         </div>
                         <div class="pull-right">
                         </div>
@@ -36,13 +36,17 @@
             <table class="border table-fixed text-center" id="dtable">
                 <thead class="">
                     <tr class="bg-gray-500 text-white">
-                        <th onclick="sortTable(0)" class="px-2 py-2 w-1">Contact ID</th>
-                        <th onclick="sortTable(1)" class="px-2 py-2 w-1">Nickname</th>
-                        <th onclick="sortTable(2)" class="px-3 py-2 w-1">Phone Number</th>
-                        <th onclick="sortTable(3)" class="px-2 py-2 w-1">Region</th>
-                        <th onclick="sortTable(4)" class="px-2 py-2 w-1">Doctors ID</th>
-                        <th onclick="sortTable(5)" class="px-2 py-2 w-1">Patients ID</th>
-                        <th onclick="sortTable(6)" class="px-3 py-2 w-1">Created at</th>
+                        <th onclick="sortTable(0)" class="px-1 py-2 w-1">Contact ID</th>
+                        <th onclick="sortTable(1)" class="px-2 py-2 w-1">First Name</th>
+                        <th onclick="sortTable(2)" class="px-2 py-2 w-1">Last Name</th>
+                        <th onclick="sortTable(3)" class="px-1 py-2 w-1">Age</th>
+                        <th onclick="sortTable(4)" class="px-2 py-2 w-1">Gender</th>
+                        <th onclick="sortTable(5)" class="px-3 py-2 w-1">Phone Number</th>
+                        <th onclick="sortTable(6)" class="px-2 py-2 w-1">Region</th>
+                        <th onclick="sortTable(7)" class="px-1 py-2 w-1">Doctors ID</th>
+                        <th onclick="sortTable(8)" class="px-1 py-2 w-1">Patients ID</th>
+                        <th onclick="sortTable(9)" class="px-2 py-2 w-1">Created at</th>
+                        <th onclick="sortTable(10)" class="px-2 py-2 w-1">Updated at</th>
                         <th class="px-2 py-2">Actions</th>
                     </tr>
                 </thead>
@@ -50,12 +54,16 @@
                     @foreach($doctorPatient as $doctor)
                     <tr>
                         <td class="border">{{ $doctor->id }}</td>
-                        <td class="border">{{ $doctor->nickname }}</td>
+                        <td class="border">{{ $doctor->firstname }}</td>
+                        <td class="border">{{ $doctor->lastname }}</td>
+                        <td class="border">{{ $doctor->age }}</td>
+                        <td class="border">{{ $doctor->gender }}</td>
                         <td class="border">{{ $doctor->phonenumber }}</td>
                         <td class="border">{{ $doctor->region }}</td>
                         <td class="border">{{ $doctor->doctor_id }}</td>
                         <td class="border">{{ $doctor->patient_id }}</td>
                         <td class="border">{{ $doctor->created_at }}</td>
+                        <td class="border">{{ $doctor->updated_at }}</td>
                         <td class="px-2 py-2 border">
                         <form action="{{ route('contacts.destroy',$doctor->id) }}" method="POST">
             
@@ -164,7 +172,7 @@ function searchtracer() {
   table = document.getElementById("dtable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td2 = tr[i].getElementsByTagName("td")[2];
+    td2 = tr[i].getElementsByTagName("td")[1];
 
     if (td2) {
       txtValue = td2.textContent || td2.innerText;
@@ -184,7 +192,7 @@ function searchsuspect() {
   table = document.getElementById("dtable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td2 = tr[i].getElementsByTagName("td")[3];
+    td2 = tr[i].getElementsByTagName("td")[2];
 
     if (td2) {
       txtValue = td2.textContent || td2.innerText;

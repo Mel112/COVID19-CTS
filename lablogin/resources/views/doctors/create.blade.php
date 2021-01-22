@@ -88,7 +88,7 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="phonenumber" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
-                <input type="text" name="phonenumber" class="form-control rounded-pill" placeholder="Phone Number">
+                <input type="tel" name="phonenumber" class="form-control rounded-pill" placeholder="Phone Number" maxlength ="11">
               </div>
     </div>
     <br><br>

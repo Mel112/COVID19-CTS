@@ -10,13 +10,14 @@ class ExcelExport implements FromCollection,WithHeadings
 {
     public function headings():array{
         return[
-            'firstname', 
-            'lastname', 
+            'lastname',
             'status',
             'age',
             'gender',
-            'phonenumber', 
+            'phonenumber',
             'region',
+            'created_at',
+            'updated_at',
         ];
     }
 

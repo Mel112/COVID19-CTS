@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>COVID-19 DOCTORS Tracer</title>
+        <title>Doctors_TracePH</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </head>
 
@@ -9,29 +9,32 @@
         #id{
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-            width: 100%;
+            width: 50%;
+            height: 20px;
+            font-size: 12px;
         }
         #id td, #emp th{
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 5px;
         }
         #id tr:nth-child(even){
             background-color: #deeaee;
         }
         #id th{
-            padding-top: 12px;
-            padding-bottom: 12px;
+            padding-top: 8px;
+            padding-bottom: 8px;
             text-align: center;
             background-color: #ddd;
         }
     </style>
 
     <body>
-    <div class="container">
-        <div class="col-md-8 section offset-md-2">
-            <div class="panel panel-primary">
+    
+<div class="container">
+    <div class="col-md-8 section offset-md-2">
+        <div class="panel panel-primary">
 
-    <?=$dt = new Carbon();
+        <?=$dt = new Carbon();
         echo '<br>';
         $dt->timezone('Etc/GMT-8'); 
         echo 'Date and Time Exported:';
@@ -48,6 +51,7 @@
         <table id="id">
         <thead>
             <tr>
+            <th class="text-left">DoctorID</th>
             <th class="text-left">First Name</th>
             <th class="text-left">Last Name</th>
             <th class="text-left">Age</th>
@@ -59,6 +63,7 @@
         <tbody>
             @foreach($doctors as $doctor)
             <tr>
+            <td class="text-left">{{ $doctor->id }}</td>
             <td class="text-left">{{ $doctor->firstname }}</td>
             <td class="text-left">{{ $doctor->lastname }}</td>
             <td class="text-left">{{ $doctor->age }}</td>
@@ -72,7 +77,8 @@
     </div><!-- end of main-div -->
 </div><!-- end of panel body -->
 
-                </div> <!-- end of panel primary -->
+            
+              </div> <!-- end of panel primary -->
             </div> <!-- end of col-md-8 -->
         </div> <!-- container -->
     </body>

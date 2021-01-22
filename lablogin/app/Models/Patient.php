@@ -18,10 +18,12 @@ class Patient extends Model
         'gender',
         'phonenumber', 
         'region',
+        'created_at',
+        'updated_at',
     ];
 
     public function doctors(){
-        return $this->belongsToMany(Doctor::class)->withTimestamps()->withPivot('phonenumber', 'region');
+        return $this->belongsToMany(Doctor::class)->withTimestamps()->withPivot('firstname', 'lastname', 'age', 'gender', 'phonenumber', 'region');
     }
 
     protected $table ='patients';
@@ -33,7 +35,9 @@ class Patient extends Model
         'age',
         'gender',
         'phonenumber',
-        'region')->get()->toArray();
+        'region',
+        'created_at',
+        'updated_at')->get()->toArray();
         return $records;
     }
    

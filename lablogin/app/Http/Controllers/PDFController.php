@@ -32,7 +32,7 @@ class PDFController extends Controller
         $doctors = Doctor::all();
         $pdf = PDF::loadView('preview1',compact('doctor_patient','doctors','patients'));
 
-        return $pdf->download('trace(allrecord).pdf');
+        return $pdf->download('AllRecord_tracePH.pdf');
     }
 
     public function generate1()
@@ -42,7 +42,7 @@ class PDFController extends Controller
         $doctors = Doctor::all();
         $pdf1 = PDF::loadView('preview2',compact('doctor_patient','doctors','patients'));
 
-        return $pdf1->download('trace(patients).pdf');
+        return $pdf1->download('Patients_tracePH.pdf');
     }
 
     public function generate2()
@@ -52,7 +52,7 @@ class PDFController extends Controller
         $doctors = Doctor::all();
         $pdf2 = PDF::loadView('preview3',compact('doctor_patient','doctors','patients'));
 
-        return $pdf2->download('trace(closecontacts).pdf');
+        return $pdf2->download('CloseContact_tracePH.pdf');
     }
 
     public function generate3()
@@ -62,7 +62,7 @@ class PDFController extends Controller
         $doctors = Doctor::all();
         $pdf3 = PDF::loadView('preview4',compact('doctor_patient','doctors','patients'));
 
-        return $pdf3->download('trace(doctors).pdf');
+        return $pdf3->download('Doctors_tracePH.pdf');
     }
 
 

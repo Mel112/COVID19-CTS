@@ -22,7 +22,10 @@ class DoctorPatientFactory extends Factory
     public function definition()
     {
         return [
-            'nickname' => $this->faker->firstname,
+            'firstname' => $this->faker->firstname,
+            'lastname' => $this->faker->lastname,
+            'age'=>$this->faker->numberBetween($min=1, $max=99),
+            'gender'=>$this->faker->randomElement(['Male','Female']),
             'phonenumber'=>$this->faker->e164PhoneNumber,
             'region'=>$this->faker->randomElement(['Region I', 'Region II', 'Region III', 'Region IV-A', 'Region IV-B',
                 'Region V', 'CAR', 'NCR', 'Region VI', 'Region VII', 'Region VIII', 'Region IX', 'Region X', 'Region XI',
